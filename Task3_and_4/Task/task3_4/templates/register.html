@@ -1,0 +1,12 @@
+{%extends 'layout.html'%}
+
+{% block body %}
+    {% if message %}
+        <h1>{{message}}</h1>
+    {% endif %}
+    <form action="{% url 'registration' %}" method = "POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type = "submit" value = "Register">
+    </form>
+{% endblock %}
